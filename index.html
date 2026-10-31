@@ -150,7 +150,6 @@ img { -webkit-user-drag: none; user-select: none; }
   <div class="controls">
     <div class="field"><label>Group</label><b id="groupName"></b><button class="btn" id="changeGroup" type="button">Change group</button></div>
     <button class="btn primary" id="savePic" type="button">Save as picture</button>
-    <button class="btn" id="showText" type="button">Show my chains as text</button>
     <button class="btn" id="reset" type="button">Start over</button>
   </div>
 </header>
@@ -459,11 +458,6 @@ function chainsText() {
 }
 function fillText() { $('chainText').value = chainsText(); }
 $('showText').addEventListener('click', function () {
-  var p = $('textpanel'); p.hidden = !p.hidden;
-  $('showText').textContent = p.hidden ? 'Show my chains as text' : 'Hide chains text';
-  if (!p.hidden) { fillText(); p.scrollIntoView({ block: 'nearest' }); }
-});
-$('copyText').addEventListener('click', function () {
   var ta = $('chainText'), msg = $('copyMsg');
   function fallback() { ta.focus(); ta.select(); msg.textContent = 'Press Ctrl+C to copy the selected text.'; }
   try {
